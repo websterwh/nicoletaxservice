@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YOUR_BUSINESS_NAME | Tax Preparation</title>
+  <meta name="description" content="Professional tax preparation services. Fast, accurate filing and year-round support." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a2e;
+      --card2:#0c1628;
+      --text:#e9eefb;
+      --muted:#b8c3df;
+      --line:rgba(255,255,255,.12);
+      --accent:#4f8cff;
+      --accent2:#2fd1a5;
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% -10%, rgba(79,140,255,.35), transparent 55%),
+        radial-gradient(700px 480px at 95% 0%, rgba(47,209,165,.25), transparent 50%),
+        linear-gradient(180deg, #070c16, var(--bg));
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 48px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:10px 0 22px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;min-width:0;
+    }
+    .logo{
+      width:46px;height:46px;border-radius:14px;
+      background:linear-gradient(135deg, rgba(79,140,255,.9), rgba(47,209,165,.85));
+      display:grid;place-items:center;
+      box-shadow: 0 12px 26px rgba(79,140,255,.18);
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover;display:none}
+    .brand h1{font-size:15px;letter-spacing:.2px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      padding:8px 12px;border-radius:999px;
+      color:var(--muted);font-size:12px;white-space:nowrap;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:start;
+    }
+    @media (max-width:860px){ .grid{grid-template-columns:1fr} .pill{display:none} }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card .inner{padding:22px}
+    .hero{
+      padding:26px 22px 20px;
+      background:
+        radial-gradient(800px 300px at 30% 0%, rgba(79,140,255,.22), transparent 55%),
+        radial-gradient(700px 280px at 90% 0%, rgba(47,209,165,.16), transparent 60%);
+      border-bottom:1px solid var(--line);
+    }
+    .hero h2{margin:0 0 10px;font-size:28px;letter-spacing:-.2px;line-height:1.15}
+    .hero p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+    .features{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px
+    }
+    @media (max-width:640px){ .features{grid-template-columns:1fr} }
+    .feat{
+      background:rgba(0,0,0,.18);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 12px;
+    }
+    .feat b{display:block;font-size:13px;margin-bottom:4px}
+    .feat span{color:var(--muted);font-size:12px}
+
+    .section h3{margin:0 0 10px;font-size:15px}
+    .section p{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.55}
+
+    .contact{
+      display:grid;gap:10px;margin-top:12px
+    }
+    .row{
+      display:flex;gap:10px;flex-wrap:wrap
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      padding:10px 12px;border-radius:14px;
+      font-size:13px;color:var(--text);
+    }
+    .badge small{color:var(--muted);display:block;font-size:11px;margin-top:2px}
+
+    form{display:grid;gap:10px;margin-top:10px}
+    label{font-size:12px;color:var(--muted)}
+    input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.22);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    input:focus{border-color: rgba(79,140,255,.8); box-shadow: 0 0 0 3px rgba(79,140,255,.18)}
+    button{
+      width:100%;
+      padding:12px 14px;
+      border-radius:14px;
+      border:0;
+      cursor:pointer;
+      font-weight:700;
+      font-size:14px;
+      color:#061022;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 22px rgba(79,140,255,.18);
+    }
+    button:disabled{opacity:.6;cursor:not-allowed}
+    .fineprint{font-size:12px;color:var(--muted);line-height:1.45}
+    .status{
+      display:none;
+      border-radius:14px;
+      padding:12px 12px;
+      border:1px solid var(--line);
+      background:rgba(47,209,165,.10);
+      color:var(--text);
+      font-size:13px;
+    }
+    .status.error{
+      background:rgba(255,79,120,.10);
+    }
+    footer{margin-top:18px;color:rgba(255,255,255,.55);font-size:12px;text-align:center}
+    .hide{display:none}
+  </style>
+
+  <!-- reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-label="Logo">
+          <!-- Option 1: leave as gradient placeholder (professional + clean)
+               Option 2: add a logo file at /logo.png and uncomment the img + set display:block in CSS -->
+          <!-- <img src="logo.png" alt="YOUR_BUSINESS_NAME logo" /> -->
+          <span aria-hidden="true" style="font-weight:900;">T</span>
+        </div>
+        <div>
+          <h1>YOUR_BUSINESS_NAME</h1>
+          <p>Tax Preparation • E-file • Year-round support</p>
+        </div>
+      </div>
+      <div class="pill">Secure • Fast • Accurate</div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="hero">
+          <h2>Stress-free tax filing, done right.</h2>
+          <p>
+            Individual & small business tax preparation with clear communication, accurate returns,
+            and filing you can trust.
+          </p>
+
+          <div class="features">
+            <div class="feat"><b>Fast turnaround</b><span>Streamlined intake and e-file</span></div>
+            <div class="feat"><b>Accuracy first</b><span>Careful review + documentation</span></div>
+            <div class="feat"><b>Friendly support</b><span>Questions welcome</span></div>
+          </div>
+        </div>
+
+        <div class="inner section">
+          <h3>Services</h3>
+          <p>• Federal & State individual returns • W-2 / 1099 • Schedule C • Small business support</p>
+          <p>• Prior-year returns • Amended returns • Tax planning & guidance</p>
+
+          <div class="contact">
+            <div class="row">
+              <div class="badge">📞 <div><div><b>(555) 123-4567</b></div><small>Call / text</small></div></div>
+              <div class="badge">📍 <div><div><b>Your City, State</b></div><small>Serving: Local + Remote</small></div></div>
+            </div>
+            <div class="row">
+              <div class="badge">✉️ <div><div><b>you@yourdomain.com</b></div><small>Business email</small></div></div>
+              <div class="badge">🕒 <div><div><b>Mon–Sat</b></div><small>By appointment</small></div></div>
+            </div>
+          </div>
+
+          <p class="fineprint" style="margin-top:14px">
+            <b>Note:</b> This page collects your email so we can follow up. No tax documents should be submitted here.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="inner section">
+          <h3>Get a callback / updates</h3>
+          <p>Enter your email and I’ll reach out with next steps and availability.</p>
+
+          <div id="statusOk" class="status">
+            ✅ Thanks! Your email was received. I’ll reach out soon.
+          </div>
+          <div id="statusErr" class="status error">
+            ⚠️ Something went wrong. Please try again in a moment.
+          </div>
+
+          <form id="leadForm" action="YOUR_FORMSPREE_ENDPOINT" method="POST" novalidate>
+            <input type="hidden" name="source" value="github-pages-tax-site" />
+            <input type="hidden" name="g-recaptcha-response" id="recaptchaToken" />
+
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+
+            <button id="submitBtn" type="submit">Submit</button>
+
+            <p class="fineprint">
+              Protected by reCAPTCHA. By submitting, you agree to be contacted about tax services.
+            </p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      © <span id="year"></span> YOUR_BUSINESS_NAME • Tax Preparation
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const form = document.getElementById("leadForm");
+    const btn = document.getElementById("submitBtn");
+    const ok = document.getElementById("statusOk");
+    const err = document.getElementById("statusErr");
+    const tokenInput = document.getElementById("recaptchaToken");
+
+    function show(el){ el.style.display = "block"; }
+    function hide(el){ el.style.display = "none"; }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hide(ok); hide(err);
+
+      const email = document.getElementById("email").value.trim();
+      if (!email) { show(err); err.textContent = "⚠️ Please enter a valid email."; return; }
+
+      btn.disabled = true;
+      btn.textContent = "Submitting…";
+
+      try {
+        // Get reCAPTCHA v3 token (invisible)
+        const token = await grecaptcha.execute("YOUR_RECAPTCHA_SITE_KEY", { action: "submit" });
+        tokenInput.value = token;
+
+        // AJAX submit to Formspree so we can show an inline success message
+        const res = await fetch(form.action, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(form)
+        });
+
+        if (res.ok) {
+          form.reset();
+          show(ok);
+        } else {
+          show(err);
+        }
+      } catch (ex) {
+        show(err);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Submit";
+      }
+    });
+  </script>
+</body>
+</html>
